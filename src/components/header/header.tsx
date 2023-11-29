@@ -47,7 +47,6 @@ function Header() {
   };
 
   const handleLocationButton = () => {
-    // какой-то запрос
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
     } else {
@@ -64,6 +63,11 @@ function Header() {
           defaultValue={searchValue}
           placeholder="Введите ваш город"
           onChange={handleInput}
+          onKeyDown={(e: any) => {
+            if (e.key === "Enter") {
+              handleSearchButton();
+            }
+          }}
         />
         <StyledSearchButton
           disabled={searchValue.length === 0 ? true : false}

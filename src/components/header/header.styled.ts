@@ -34,6 +34,7 @@ export const StyledInput = styled.input`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  background: transparent;
 
   &:focus {
     outline: none;
