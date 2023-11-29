@@ -56,11 +56,16 @@ export const StyledSearchButton = styled.button`
   font-weight: 800;
   font-size: 22px;
   line-height: normal;
-  transition: 0.3s background;
+  transition: 0.3s all;
 
   &:hover {
     cursor: pointer;
     background: #53e110;
+  }
+
+  &:disabled {
+    cursor: default;
+    background: #ced5cb;
   }
 `;
 
