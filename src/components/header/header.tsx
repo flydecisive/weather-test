@@ -9,9 +9,11 @@ import {
 } from "./header.styled";
 import SearchIcon from "../../assets/img/search.svg?react";
 import CurrentLocationIcon from "../../assets/img/current_location.svg?react";
+import { getUserGeo } from "../../geo-api";
 
 function Header() {
-  // const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isUserLocationLoading, setIsUserLocationLoading] =
+    useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
 
   const handleInput = (e: any) => {
@@ -23,13 +25,43 @@ function Header() {
     console.log(searchValue);
   };
 
+  const successHandler = (position: any) => {
+    setIsUserLocationLoading(true);
+    console.log(position?.coords);
+    getUserGeo(position?.coords.latitude, position?.coords.longitude)
+      .then((responseData: any) => {
+        console.log(responseData.timestamp);
+        setSearchValue(responseData?.results[0].components.city);
+        console.log(responseData);
+      })
+      .finally(() => {
+        setIsUserLocationLoading(false);
+      });
+  };
+
+  const errorHandler = (error: any) => {
+    console.error(error.message);
+    alert(
+      "Не получается определить вашу геолокацию.\nВключите разрешение определения местоположения в настройках браузера. "
+    );
+  };
+
+  const handleLocationButton = () => {
+    // какой-то запрос
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
+    } else {
+      alert("Ваш браузер не дружит с геолокацией...");
+    }
+  };
+
   return (
     <StyledWrapper>
       <StyledSearchWrapper>
         <SearchIcon />
         <StyledInput
           type="text"
-          defaultValue={""}
+          defaultValue={searchValue}
           placeholder="Введите ваш город"
           onChange={handleInput}
         />
@@ -40,9 +72,12 @@ function Header() {
           Найти
         </StyledSearchButton>
       </StyledSearchWrapper>
-      <StyledLocationButton>
+      <StyledLocationButton
+        onClick={handleLocationButton}
+        disabled={isUserLocationLoading}
+      >
         <CurrentLocationIcon />
-        Определить город
+        {isUserLocationLoading ? "Загрузка..." : "Определить город"}
       </StyledLocationButton>
     </StyledWrapper>
   );

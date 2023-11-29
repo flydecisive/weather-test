@@ -96,4 +96,9 @@ export const StyledLocationButton = styled.button`
     cursor: pointer;
     background: #53e110;
   }
+
+  &:disabled {
+    cursor: default;
+    background: #ced5cb;
+  }
 `;
