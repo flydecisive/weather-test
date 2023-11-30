@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   StyledWrapper,
   StyledSearchWrapper,
@@ -10,12 +10,17 @@ import {
 import SearchIcon from "../../assets/img/search.svg?react";
 import CurrentLocationIcon from "../../assets/img/current_location.svg?react";
 import getUserGeo from "../../geo-api";
-import { getCurrentWeather } from "../../weather-api";
+import { getCurrentWeather, getDailyWeather } from "../../weather-api";
 
 function Header() {
   const [isUserLocationLoading, setIsUserLocationLoading] =
     useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
+  const [isWeatherLoading, setIsWeatherLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    console.log(searchValue);
+  }, [searchValue]);
 
   const handleInput = (e: any) => {
     e.target.value = e.target.value.replace(/[^a-z,A-Z,а-я,А-Я]/, "");
@@ -24,10 +29,25 @@ function Header() {
 
   // http://openweathermap.org/img/w/${apiData.weather[0].icon}.png
   const handleSearchButton = () => {
-    console.log(searchValue);
-    getCurrentWeather(searchValue).then((responseData) => {
-      console.log(responseData);
-    });
+    setIsWeatherLoading(true);
+    getCurrentWeather(searchValue)
+      .then((responseData) => {
+        console.log(responseData);
+      })
+      .catch((err) => {
+        if (err.message === "Response limits") {
+          alert(
+            "Превышено максимальное количество запросов. Попробуйте позже."
+          );
+        }
+      })
+      .finally(() => {
+        setIsWeatherLoading(false);
+      });
+
+    // getDailyWeather(searchValue).then((responseData) => {
+    //   console.log("daily", responseData);
+    // });
   };
 
   const successHandler = (position: any) => {
@@ -65,7 +85,8 @@ function Header() {
         <SearchIcon />
         <StyledInput
           type="text"
-          defaultValue={searchValue}
+          // defaultValue={searchValue}
+          value={searchValue}
           placeholder="Введите ваш город"
           onChange={handleInput}
           onKeyDown={(e: any) => {
@@ -75,7 +96,7 @@ function Header() {
           }}
         />
         <StyledSearchButton
-          disabled={searchValue.length === 0 ? true : false}
+          disabled={searchValue.length === 0 || isWeatherLoading ? true : false}
           onClick={handleSearchButton}
         >
           Найти
@@ -83,7 +104,7 @@ function Header() {
       </StyledSearchWrapper>
       <StyledLocationButton
         onClick={handleLocationButton}
-        disabled={isUserLocationLoading}
+        disabled={isUserLocationLoading || isWeatherLoading}
       >
         <CurrentLocationIcon />
         {isUserLocationLoading ? "Загрузка..." : "Определить город"}

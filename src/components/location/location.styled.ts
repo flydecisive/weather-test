@@ -8,4 +8,35 @@ export const StyledWrapper = styled.div`
   filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
   border-radius: 30px;
   background: #d9d9d9;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const StyledCity = styled.p`
+  font-family: "Roboto";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+export const StyledTime = styled.p`
+  font-family: "Roboto";
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+export const StyledDate = styled.p`
+  font-family: "Roboto";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `;

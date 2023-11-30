@@ -75,6 +75,7 @@ export const StyledLocationButton = styled.button`
   background: #4cbb17;
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25);
   height: 62px;
+  width: 302px;
   box-sizing: border-box;
   padding-left: 30px;
   padding-right: 30px;
