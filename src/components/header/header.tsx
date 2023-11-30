@@ -9,7 +9,8 @@ import {
 } from "./header.styled";
 import SearchIcon from "../../assets/img/search.svg?react";
 import CurrentLocationIcon from "../../assets/img/current_location.svg?react";
-import { getUserGeo } from "../../geo-api";
+import getUserGeo from "../../geo-api";
+import { getCurrentWeather } from "../../weather-api";
 
 function Header() {
   const [isUserLocationLoading, setIsUserLocationLoading] =
@@ -21,8 +22,12 @@ function Header() {
     setSearchValue(e.target.value);
   };
 
+  // http://openweathermap.org/img/w/${apiData.weather[0].icon}.png
   const handleSearchButton = () => {
     console.log(searchValue);
+    getCurrentWeather(searchValue).then((responseData) => {
+      console.log(responseData);
+    });
   };
 
   const successHandler = (position: any) => {
