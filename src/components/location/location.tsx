@@ -3,15 +3,17 @@ import {
   StyledCity,
   StyledTime,
   StyledDate,
+  StyledDateWrapper,
 } from "./location.styled";
 
 function Location() {
   return (
     <StyledWrapper>
       <StyledCity>Волгоград</StyledCity>
-      <div className="datewrapper"></div>
-      <StyledTime>14:59</StyledTime>
-      <StyledDate>Четверг, 30 ноября</StyledDate>
+      <StyledDateWrapper>
+        <StyledTime>14:59</StyledTime>
+        <StyledDate>Четверг, 30 ноября</StyledDate>
+      </StyledDateWrapper>
     </StyledWrapper>
   );
 }

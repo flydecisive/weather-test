@@ -10,7 +10,7 @@ import {
 import SearchIcon from "../../assets/img/search.svg?react";
 import CurrentLocationIcon from "../../assets/img/current_location.svg?react";
 import getUserGeo from "../../geo-api";
-import { getCurrentWeather, getDailyWeather } from "../../weather-api";
+import { getCurrentWeather } from "../../weather-api";
 
 function Header() {
   const [isUserLocationLoading, setIsUserLocationLoading] =
@@ -67,7 +67,7 @@ function Header() {
   const errorHandler = (error: any) => {
     console.error(error.message);
     alert(
-      "Не получается определить вашу геолокацию.\nВключите разрешение определения местоположения в настройках браузера. "
+      "Не получается определить вашу геолокацию.\nВключите разрешение определения местоположения в настройках браузера."
     );
   };
 

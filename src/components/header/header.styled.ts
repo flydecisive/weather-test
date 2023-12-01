@@ -10,7 +10,7 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledSearchWrapper = styled.div`
-  width: 50vw;
+  width: 100%;
   height: 62px;
   border-radius: 40px;
   border: 1px solid #000;
