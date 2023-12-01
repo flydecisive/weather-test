@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     #root {
         color: #292929; 
         width: 100vw;
-        height: 100vh;
+        min-height: 100vh;
         
         box-sizing: border-box;
         background: linear-gradient(113deg, rgba(255,255,255,1) 0%, rgba(240,242,238,1) 28%, rgba(70,97,115,1) 100%);
