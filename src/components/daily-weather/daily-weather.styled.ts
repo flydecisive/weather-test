@@ -14,12 +14,12 @@ export const StyledWrapper = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   gap: 15px;
-
-  @media (min-width: 1921px) {
-    padding: 40px 40px;
-    gap: 40px;
-  }
 `;
+
+//  @media (min-width: 1921px) {
+//     padding: 40px 40px;
+//     gap: 40px;
+//   }
 
 export const StyledHeading = styled.h2`
   font-family: "Roboto";
@@ -27,11 +27,11 @@ export const StyledHeading = styled.h2`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-
-  @media (min-width: 1921px) {
-    font-size: 40px;
-  }
 `;
+
+// @media (min-width: 1921px) {
+//     font-size: 40px;
+//   }
 
 export const StyledItemsWrapper = styled.div`
   width: 100%;

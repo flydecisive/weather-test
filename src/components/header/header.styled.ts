@@ -7,6 +7,10 @@ export const StyledWrapper = styled.div`
   width: 100%;
   box-sizing: border-box;
   gap: 40px;
+
+  @media (max-width: 376px) {
+    flex-flow: column nowrap;
+  }
 `;
 
 export const StyledSearchWrapper = styled.div`

@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
         }
 
         @media (min-width: 1921px) {
-            padding: 10vh 14vw;
+            padding: 40px 14vw;
         }
     }
 `;

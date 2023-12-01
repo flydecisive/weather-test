@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-// height: 270px;
-
 export const StyledItem = styled.div`
   height: 100%;
   display: flex;
@@ -17,6 +15,10 @@ export const StyledItem = styled.div`
     rgba(205, 202, 219, 1) 100%
   );
   filter: drop-shadow(10px 10px 4px rgba(205, 202, 219, 0.8));
+
+  @media (max-width: 1441px) {
+    padding: 10px 10px;
+  }
 `;
 
 export const StyledItemElem = styled.div`
@@ -29,12 +31,12 @@ export const StyledItemElem = styled.div`
 export const StyledElemIcon = styled.div`
   width: 28px;
   height: 28px;
-
-  @media (min-width: 1921px) {
-    width: 36px;
-    height: 36px;
-  }
 `;
+
+// @media (min-width: 1921px) {
+//     width: 36px;
+//     height: 36px;
+//   }
 
 export const StyledItemDate = styled.h3`
   font-family: "Roboto";
@@ -42,11 +44,11 @@ export const StyledItemDate = styled.h3`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-
-  @media (min-width: 1921px) {
-    font-size: 32px;
-  }
 `;
+
+// @media (min-width: 1921px) {
+//     font-size: 32px;
+//   }
 
 export const StyledItemText = styled.p`
   font-family: "Roboto";
@@ -54,26 +56,27 @@ export const StyledItemText = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
-
-  @media (min-width: 1921px) {
-    font-size: 24px;
-  }
 `;
+
+// @media (min-width: 1921px) {
+//     font-size: 24px;
+//   }
 
 export const StyledItemInfo = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  column-gap: 20px;
   row-gap: 15px;
 `;
 
 export const StyledStatusIcon = styled.div`
   width: 80px;
   height: 80px;
-
-  @media (min-width: 1921px) {
-    width: 120px;
-    height: 120px;
-  }
 `;
+
+// column-gap: 20px;
+
+// @media (min-width: 1921px) {
+//     width: 120px;
+//     height: 120px;
+//   }
