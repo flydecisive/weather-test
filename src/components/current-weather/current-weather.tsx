@@ -20,51 +20,68 @@ import {
   StyledStatusIcon,
   StyledRightElemBottom,
 } from "./current-weather.styled";
-import SunriseIcon from "../../assets/img/sunrise.svg?react";
-import SunsetIcon from "../../assets/img/sunset.svg?react";
-import TestIc from "../../assets/img/test.svg?react";
+import DewIcon from "../../assets/img/dew.svg?react";
+import VisibilityIcon from "../../assets/img/visibility.svg?react";
 import HumidityIcon from "../../assets/img/humidity.svg?react";
 import WindIcon from "../../assets/img/wind.svg?react";
 import PressureIcon from "../../assets/img/pressure.svg?react";
 import UvIcon from "../../assets/img/uv-index.svg?react";
+import { useCurrentWeatherContext } from "../../contexts/current-weather";
+import { iconsData } from "../../icons-data";
 
 function CurrentWeather() {
+  const { currentWeather } = useCurrentWeatherContext();
   return (
     <StyledWrapper>
       <StyledLeftContainer>
         <StyledTemperature>
-          <StyledCurrentTemp>24&deg;C</StyledCurrentTemp>
+          <StyledCurrentTemp>
+            {Math.floor(currentWeather?.data?.values.temperature)}&deg;C
+          </StyledCurrentTemp>
           <StyledFeel>
-            Ощущается как: <StyledFeelTemp>22&deg;C</StyledFeelTemp>
+            Ощущается как:{" "}
+            <StyledFeelTemp>
+              {Math.floor(currentWeather?.data?.values.temperatureApparent)}
+              &deg;C
+            </StyledFeelTemp>
           </StyledFeel>
         </StyledTemperature>
         <StyledElemsLeftContainer>
           <StyledElemLeft>
             <StyledLeftIcon>
-              <SunriseIcon />
+              <VisibilityIcon />
             </StyledLeftIcon>
             <StyledLeftElemInfo>
-              <StyledElemHeading>Sunrise</StyledElemHeading>
-              <StyledElemText>06:37 AM</StyledElemText>
+              <StyledElemHeading>Видимость</StyledElemHeading>
+              <StyledElemText>
+                {currentWeather?.data?.values.visibility} км
+              </StyledElemText>
             </StyledLeftElemInfo>
           </StyledElemLeft>
           <StyledElemLeft>
             <StyledLeftIcon>
-              <SunsetIcon />
+              <DewIcon />
             </StyledLeftIcon>
             <StyledLeftElemInfo>
-              <StyledElemHeading>Sunset</StyledElemHeading>
-              <StyledElemText>06:37 AM</StyledElemText>
+              <StyledElemHeading>Точка росы</StyledElemHeading>
+              <StyledElemText>
+                {Math.round(currentWeather?.data?.values.dewPoint)}&deg;C
+              </StyledElemText>
             </StyledLeftElemInfo>
           </StyledElemLeft>
         </StyledElemsLeftContainer>
       </StyledLeftContainer>
 
       <StyledCenterContainer>
-        <StyledStatusIcon>
-          <TestIc />
-        </StyledStatusIcon>
-        <StyledWeather>Солнечно</StyledWeather>
+        <StyledStatusIcon
+          src={
+            iconsData[currentWeather?.data?.values.weatherCode.toString()]
+              .img_url
+          }
+        ></StyledStatusIcon>
+        <StyledWeather>
+          {iconsData[currentWeather?.data?.values.weatherCode.toString()].desc}
+        </StyledWeather>
       </StyledCenterContainer>
 
       <StyledElemsRightContainer>
@@ -74,7 +91,9 @@ function CurrentWeather() {
           </StyledRightIcon>
           <StyledRightElemInfo>
             <StyledElemHeading>Влажность</StyledElemHeading>
-            <StyledElemText>06:37 AM</StyledElemText>
+            <StyledElemText>
+              {currentWeather?.data?.values.humidity}%
+            </StyledElemText>
           </StyledRightElemInfo>
         </StyledRightElem>
 
@@ -84,7 +103,9 @@ function CurrentWeather() {
           </StyledRightIcon>
           <StyledRightElemInfo>
             <StyledElemHeading>Ветер</StyledElemHeading>
-            <StyledElemText>06:37 AM</StyledElemText>
+            <StyledElemText>
+              {Math.round(currentWeather?.data?.values.windSpeed)} м/с
+            </StyledElemText>
           </StyledRightElemInfo>
         </StyledRightElem>
 
@@ -94,7 +115,9 @@ function CurrentWeather() {
           </StyledRightIcon>
           <StyledRightElemInfo>
             <StyledElemHeading>Давление</StyledElemHeading>
-            <StyledElemText>06:37 AM</StyledElemText>
+            <StyledElemText>
+              {Math.floor(currentWeather?.data?.values.pressureSurfaceLevel)}
+            </StyledElemText>
           </StyledRightElemInfo>
         </StyledRightElemBottom>
 
@@ -104,7 +127,9 @@ function CurrentWeather() {
           </StyledRightIcon>
           <StyledRightElemInfo>
             <StyledElemHeading>УФ</StyledElemHeading>
-            <StyledElemText>06:37 AM</StyledElemText>
+            <StyledElemText>
+              {currentWeather?.data?.values.uvIndex}
+            </StyledElemText>
           </StyledRightElemInfo>
         </StyledRightElemBottom>
       </StyledElemsRightContainer>

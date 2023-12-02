@@ -23,10 +23,11 @@ export const StyledWrapper = styled.div`
 export const StyledTemperature = styled.div`
   display: flex;
   flex-flow: column nowrap;
+  align-items: flex-end;
   width: fit-content;
 `;
 
-export const StyledCurrentTemp = styled.span`
+export const StyledCurrentTemp = styled.p`
   font-family: "Roboto";
   font-size: 80px;
   font-style: normal;
@@ -41,18 +42,21 @@ export const StyledCurrentTemp = styled.span`
   -webkit-text-fill-color: transparent;
 `;
 
-export const StyledFeel = styled.p`
+export const StyledFeel = styled.div`
   font-family: "Roboto";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 100%;
+  align-self: center;
   display: flex;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: space-between;
+  gap: 5px;
 `;
 
-export const StyledFeelTemp = styled.span`
+export const StyledFeelTemp = styled.p`
   font-size: 28px;
   font-style: normal;
   font-weight: 500;
@@ -77,7 +81,7 @@ export const StyledElemLeft = styled.div`
   gap: 10px;
 `;
 
-export const StyledStatusIcon = styled.div`
+export const StyledStatusIcon = styled.img`
   width: 270px;
   height: 270px;
 `;

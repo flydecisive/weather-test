@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   StyledItem,
   StyledItemText,
@@ -11,39 +12,57 @@ import TemperatureIcon from "../../../assets/img/temperature.svg?react";
 import WindIcon from "../../../assets/img/wind.svg?react";
 import HumidityIcon from "../../../assets/img/humidity.svg?react";
 import PressureIcon from "../../../assets/img/pressure.svg?react";
-import TestIc from "../../../assets/img/test-small.svg?react";
+import format from "date-fns/format";
+import { iconsData } from "../../../icons-data";
 
-function DailyItem() {
+interface DailyItemProps {
+  data: any;
+}
+
+function DailyItem({ data }: DailyItemProps) {
   return (
     <StyledItem>
-      <StyledItemDate>01.12.2023</StyledItemDate>
-      <StyledStatusIcon>
-        <TestIc />
-      </StyledStatusIcon>
+      <StyledItemDate>
+        {format(new Date(data?.time), "dd.MM.yyyy")}
+      </StyledItemDate>
+      <StyledStatusIcon
+        src={iconsData[data?.values?.weatherCodeMax.toString()].img_url}
+      ></StyledStatusIcon>
       <StyledItemInfo>
         <StyledItemElem>
           <StyledElemIcon>
             <TemperatureIcon />
           </StyledElemIcon>
-          <StyledItemText>-2&deg;C</StyledItemText>
+
+          <StyledItemText>
+            {Math.floor(data?.values?.temperatureAvg)}&deg;C
+          </StyledItemText>
         </StyledItemElem>
         <StyledItemElem>
           <StyledElemIcon>
             <WindIcon />
           </StyledElemIcon>
-          <StyledItemText>3 км/ч</StyledItemText>
+
+          <StyledItemText>
+            {Math.floor(data?.values?.windSpeedAvg)} м/с
+          </StyledItemText>
         </StyledItemElem>
         <StyledItemElem>
           <StyledElemIcon>
             <HumidityIcon />
           </StyledElemIcon>
-          <StyledItemText>38%</StyledItemText>
+          <StyledItemText>
+            {Math.floor(data?.values?.humidityAvg)}%
+          </StyledItemText>
         </StyledItemElem>
         <StyledItemElem>
           <StyledElemIcon>
             <PressureIcon />
           </StyledElemIcon>
-          <StyledItemText>1050</StyledItemText>
+
+          <StyledItemText>
+            {Math.floor(data?.values?.pressureSurfaceLevelAvg)}
+          </StyledItemText>
         </StyledItemElem>
       </StyledItemInfo>
     </StyledItem>

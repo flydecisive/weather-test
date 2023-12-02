@@ -11,8 +11,9 @@ import {
 import SearchIcon from "../../assets/img/search.svg?react";
 import CurrentLocationIcon from "../../assets/img/current_location.svg?react";
 import getUserGeo from "../../geo-api";
-import { getCurrentWeather } from "../../weather-api";
+import { getCurrentWeather, getDailyWeather } from "../../weather-api";
 import { useCurrentWeatherContext } from "../../contexts/current-weather";
+import { useDailyWeatherContext } from "../../contexts/daily-weather";
 
 interface HeaderProps {
   setIsLoaded: (params: boolean) => void;
@@ -25,6 +26,7 @@ function Header({ setIsLoaded, setInfo }: HeaderProps) {
   const [searchValue, setSearchValue] = useState<string>("");
   const [isWeatherLoading, setIsWeatherLoading] = useState<boolean>(false);
   const { setCurrentWeather } = useCurrentWeatherContext();
+  const { setDailyWeather } = useDailyWeatherContext();
 
   const handleInput = (e: any) => {
     e.target.value = e.target.value.replace(/[^a-z,A-Z,а-я,А-Я]/, "");
@@ -42,9 +44,6 @@ function Header({ setIsLoaded, setInfo }: HeaderProps) {
           setInfo(
             "Превышено максимальное количество запросов. Попробуйте позже."
           );
-          // alert(
-          //   "Превышено максимальное количество запросов. Попробуйте позже."
-          // );
         } else if (err.message === "Bad request") {
           setInfo(`Город ${searchValue} не найден`);
         }
@@ -54,9 +53,10 @@ function Header({ setIsLoaded, setInfo }: HeaderProps) {
         setIsWeatherLoading(false);
       });
 
-    // getDailyWeather(searchValue).then((responseData) => {
-    //   console.log("daily", responseData);
-    // });
+    getDailyWeather(searchValue).then((responseData) => {
+      const dailyData = responseData?.timelines?.daily.splice(1);
+      setDailyWeather(dailyData);
+    });
   };
 
   const successHandler = (position: any) => {
