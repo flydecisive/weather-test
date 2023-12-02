@@ -18,12 +18,15 @@ import { useDailyWeatherContext } from "../../contexts/daily-weather";
 interface HeaderProps {
   setIsLoaded: (params: boolean) => void;
   setInfo: (params: string) => void;
+  setIsLoading: (params: boolean) => void;
 }
 
-function Header({ setIsLoaded, setInfo }: HeaderProps) {
+function Header({ setIsLoaded, setInfo, setIsLoading }: HeaderProps) {
   const [isUserLocationLoading, setIsUserLocationLoading] =
     useState<boolean>(false);
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>(
+    sessionStorage.getItem("city") || ""
+  );
   const [isWeatherLoading, setIsWeatherLoading] = useState<boolean>(false);
   const { setCurrentWeather } = useCurrentWeatherContext();
   const { setDailyWeather } = useDailyWeatherContext();
@@ -34,7 +37,9 @@ function Header({ setIsLoaded, setInfo }: HeaderProps) {
   };
 
   const handleSearchButton = () => {
+    setIsLoading(true);
     setIsWeatherLoading(true);
+    sessionStorage.setItem("city", searchValue);
     getCurrentWeather(searchValue)
       .then((responseData) => {
         setCurrentWeather(responseData);
@@ -51,22 +56,30 @@ function Header({ setIsLoaded, setInfo }: HeaderProps) {
       .finally(() => {
         setIsLoaded(true);
         setIsWeatherLoading(false);
+        setIsLoading(false);
       });
 
-    getDailyWeather(searchValue).then((responseData) => {
-      const dailyData = responseData?.timelines?.daily.splice(1);
-      setDailyWeather(dailyData);
-    });
+    getDailyWeather(searchValue)
+      .then((responseData) => {
+        const dailyData = responseData?.timelines?.daily.splice(1);
+        setDailyWeather(dailyData);
+      })
+      .catch((err) => {
+        if (err.message === "Response limits") {
+          console.log(
+            "Превышено максимальное количество запросов. Попробуйте позже."
+          );
+        } else if (err.message === "Bad request") {
+          console.log(`Город ${searchValue} не найден`);
+        }
+      });
   };
 
   const successHandler = (position: any) => {
     setIsUserLocationLoading(true);
-    console.log(position?.coords);
     getUserGeo(position?.coords.latitude, position?.coords.longitude)
       .then((responseData: any) => {
-        console.log(responseData.timestamp);
         setSearchValue(responseData?.results[0].components.city);
-        console.log(responseData);
       })
       .finally(() => {
         setIsUserLocationLoading(false);
@@ -104,7 +117,13 @@ function Header({ setIsLoaded, setInfo }: HeaderProps) {
           }}
         />
         <StyledSearchButton
-          disabled={searchValue.length === 0 || isWeatherLoading ? true : false}
+          disabled={
+            searchValue.length === 0 ||
+            isWeatherLoading ||
+            isUserLocationLoading
+              ? true
+              : false
+          }
           onClick={handleSearchButton}
         >
           Найти

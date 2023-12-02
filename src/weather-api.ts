@@ -1,3 +1,5 @@
+// 25 запросов в час, 500 запросов в сутки
+
 const WEATHER_API_KEY = "DTqu4rsGJMVRStu4S8aGbJlRFTPUxrZp";
 const DAILY_API_PATH = "https://api.tomorrow.io/v4/weather/forecast";
 const CURRENT_API_PATH = "https://api.tomorrow.io/v4/weather/realtime";
