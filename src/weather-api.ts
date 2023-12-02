@@ -17,7 +17,11 @@ export function getCurrentWeather(city: string) {
     if (!response.ok && response.status === 429) {
       throw new Error("Response limits");
     }
-    console.log(response);
+
+    if (!response.ok && response.status === 400) {
+      throw new Error("Bad request");
+    }
+
     return response.json();
   });
 }

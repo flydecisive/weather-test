@@ -24,3 +24,11 @@ export const StyledWrapper = styled.div`
     gap: 20px;
   }
 `;
+
+export const StyledInfo = styled.p`
+  grid-column: 1 / span 8;
+  font-family: "Roboto";
+  font-size: 32px;
+  font-wight: 800;
+  line-height: normal;
+`;

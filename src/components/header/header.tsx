@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   StyledWrapper,
   StyledSearchWrapper,
@@ -12,37 +12,45 @@ import SearchIcon from "../../assets/img/search.svg?react";
 import CurrentLocationIcon from "../../assets/img/current_location.svg?react";
 import getUserGeo from "../../geo-api";
 import { getCurrentWeather } from "../../weather-api";
+import { useCurrentWeatherContext } from "../../contexts/current-weather";
 
-function Header() {
+interface HeaderProps {
+  setIsLoaded: (params: boolean) => void;
+  setInfo: (params: string) => void;
+}
+
+function Header({ setIsLoaded, setInfo }: HeaderProps) {
   const [isUserLocationLoading, setIsUserLocationLoading] =
     useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
   const [isWeatherLoading, setIsWeatherLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    console.log(searchValue);
-  }, [searchValue]);
+  const { setCurrentWeather } = useCurrentWeatherContext();
 
   const handleInput = (e: any) => {
     e.target.value = e.target.value.replace(/[^a-z,A-Z,а-я,А-Я]/, "");
     setSearchValue(e.target.value);
   };
 
-  // http://openweathermap.org/img/w/${apiData.weather[0].icon}.png
   const handleSearchButton = () => {
     setIsWeatherLoading(true);
     getCurrentWeather(searchValue)
       .then((responseData) => {
-        console.log(responseData);
+        setCurrentWeather(responseData);
       })
       .catch((err) => {
         if (err.message === "Response limits") {
-          alert(
+          setInfo(
             "Превышено максимальное количество запросов. Попробуйте позже."
           );
+          // alert(
+          //   "Превышено максимальное количество запросов. Попробуйте позже."
+          // );
+        } else if (err.message === "Bad request") {
+          setInfo(`Город ${searchValue} не найден`);
         }
       })
       .finally(() => {
+        setIsLoaded(true);
         setIsWeatherLoading(false);
       });
 
