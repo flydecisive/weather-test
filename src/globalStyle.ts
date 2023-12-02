@@ -25,5 +25,10 @@ export const GlobalStyles = createGlobalStyle`
         @media (min-width: 1921px) {
             padding: 40px 14vw;
         }
+
+        @media (max-width: 376px) {
+            padding: 20px 4vw;
+            min-height: 100dvh;
+        }
     }
 `;

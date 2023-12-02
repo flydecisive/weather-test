@@ -15,6 +15,11 @@ export const StyledWrapper = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 376px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 `;
 
 export const StyledDateWrapper = styled.div`
@@ -28,8 +33,8 @@ export const StyledCity = styled.p`
   font-weight: 700;
   line-height: normal;
 
-  @media (min-width: 1921px) {
-    font-size: 48px;
+  @media (max-width: 376px) {
+    font-size: 28px;
   }
 `;
 
@@ -40,8 +45,8 @@ export const StyledTime = styled.p`
   font-weight: 700;
   line-height: normal;
 
-  @media (min-width: 1921px) {
-    font-size: 136px;
+  @media (max-width: 376px) {
+    font-size: 78px;
   }
 `;
 
@@ -52,7 +57,7 @@ export const StyledDate = styled.p`
   font-weight: 400;
   line-height: normal;
 
-  @media (min-width: 1921px) {
-    font-size: 32px;
+  @media (max-width: 376px) {
+    font-size: 16px;
   }
 `;

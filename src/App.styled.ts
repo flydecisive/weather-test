@@ -17,4 +17,10 @@ export const StyledWrapper = styled.div`
   grid-template-rows: repeat(2, 1fr);
   column-gap: 40px;
   row-gap: 40px;
+
+  @media (max-width: 376px) {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+  }
 `;

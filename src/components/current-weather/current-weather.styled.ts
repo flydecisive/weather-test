@@ -12,11 +12,13 @@ export const StyledWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-`;
 
-// @media (min-width: 1920px) {
-//     padding: 50px;
-//   }
+  @media (max-width: 376px) {
+    flex-flow: column nowrap;
+    gap: 20px;
+    align-items: center;
+  }
+`;
 
 export const StyledTemperature = styled.div`
   display: flex;
@@ -39,10 +41,6 @@ export const StyledCurrentTemp = styled.span`
   -webkit-text-fill-color: transparent;
 `;
 
-// @media (min-width: 1921px) {
-//     font-size: 108px;
-//   }
-
 export const StyledFeel = styled.p`
   font-family: "Roboto";
   font-size: 14px;
@@ -54,10 +52,6 @@ export const StyledFeel = styled.p`
   justify-content: space-between;
 `;
 
-// @media (min-width: 1921px) {
-//     font-size: 20px;
-//   }
-
 export const StyledFeelTemp = styled.span`
   font-size: 28px;
   font-style: normal;
@@ -65,16 +59,16 @@ export const StyledFeelTemp = styled.span`
   line-height: 100%;
 `;
 
-// @media (min-width: 1921px) {
-//     font-size: 36px;
-//   }
-
 export const StyledLeftContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-between;
   width: fit-content;
+
+  @media (max-width: 376px) {
+    gap: 8px;
+  }
 `;
 
 export const StyledElemLeft = styled.div`
@@ -88,16 +82,6 @@ export const StyledStatusIcon = styled.div`
   height: 270px;
 `;
 
-// @media (max-width: 1441) {
-//     width: 240px;
-//     height: 240px;
-//   }
-
-//   @media (min-width: 1921px) {
-//     width: 300px;
-//     height: 300px;
-//   }
-
 export const StyledElemsLeftContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
@@ -108,11 +92,6 @@ export const StyledLeftIcon = styled.div`
   width: 48px;
   height: 48px;
 `;
-
-// @media (min-width: 1921px) {
-//     width: 78px;
-//     height: 78px;
-//   }
 
 export const StyledLeftElemInfo = styled.div`
   display: flex;
@@ -127,10 +106,6 @@ export const StyledElemHeading = styled.h4`
   line-height: normal;
 `;
 
-// @media (min-width: 1921px) {
-//     font-size: 32px;
-//   }
-
 export const StyledElemText = styled.p`
   font-family: "Roboto";
   font-size: 16px;
@@ -138,10 +113,6 @@ export const StyledElemText = styled.p`
   font-weight: 400;
   line-height: normal;
 `;
-
-// @media (min-width: 1921px) {
-//     font-size: 24px;
-//   }
 
 export const StyledCenterContainer = styled.div`
   display: flex;
@@ -158,15 +129,15 @@ export const StyledWeather = styled.p`
   line-height: normal;
 `;
 
-// @media (min-width: 1921px) {
-//     font-size: 48px;
-//   }
-
 export const StyledElemsRightContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   column-gap: 10px;
+
+  @media (max-width: 376px) {
+    row-gap: 10px;
+  }
 `;
 
 export const StyledRightElem = styled.div`
@@ -188,11 +159,6 @@ export const StyledRightIcon = styled.div`
   width: 58px;
   height: 58px;
 `;
-
-// @media (min-width: 1921px) {
-//     width: 88px;
-//     height: 88px;
-//   }
 
 export const StyledRightElemInfo = styled.div`
   display: flex;

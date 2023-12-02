@@ -19,6 +19,12 @@ export const StyledItem = styled.div`
   @media (max-width: 1441px) {
     padding: 10px 10px;
   }
+
+  @media (max-width: 376px) {
+    gap: 8px;
+    width: 100%;
+    padding: 30px 30px;
+  }
 `;
 
 export const StyledItemElem = styled.div`

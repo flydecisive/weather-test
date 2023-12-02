@@ -10,6 +10,7 @@ export const StyledWrapper = styled.div`
 
   @media (max-width: 376px) {
     flex-flow: column nowrap;
+    gap: 10px;
   }
 `;
 
@@ -27,6 +28,10 @@ export const StyledSearchWrapper = styled.div`
   padding-left: 30px;
   padding-right: 30px;
   align-items: center;
+
+  @media (max-width: 376px) {
+    height: 52px;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -72,6 +77,43 @@ export const StyledSearchButton = styled.button`
     cursor: default;
     background: #ced5cb;
   }
+
+  @media (max-width: 376px) {
+    display: none;
+  }
+`;
+
+export const StyledSearchButtonMobile = styled.button`
+  border-radius: 40px;
+  background: #4cbb17;
+  height: 52px;
+  width: 100%;
+  border: none;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Roboto";
+  font-weight: 800;
+  font-size: 22px;
+  line-height: normal;
+  transition: 0.3s all;
+
+  &:hover {
+    cursor: pointer;
+    background: #53e110;
+  }
+
+  &:disabled {
+    cursor: default;
+    background: #ced5cb;
+  }
+
+  @media (min-width: 376px) {
+    display: none;
+  }
 `;
 
 export const StyledLocationButton = styled.button`
@@ -106,5 +148,10 @@ export const StyledLocationButton = styled.button`
   &:disabled {
     cursor: default;
     background: #ced5cb;
+  }
+
+  @media (max-width: 376px) {
+    width: 100%;
+    height: 52px;
   }
 `;

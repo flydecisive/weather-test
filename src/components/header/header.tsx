@@ -6,6 +6,7 @@ import {
   StyledInput,
   StyledLocationButton,
   StyledSearchButton,
+  StyledSearchButtonMobile,
 } from "./header.styled";
 import SearchIcon from "../../assets/img/search.svg?react";
 import CurrentLocationIcon from "../../assets/img/current_location.svg?react";
@@ -85,7 +86,6 @@ function Header() {
         <SearchIcon />
         <StyledInput
           type="text"
-          // defaultValue={searchValue}
           value={searchValue}
           placeholder="Введите ваш город"
           onChange={handleInput}
@@ -102,6 +102,12 @@ function Header() {
           Найти
         </StyledSearchButton>
       </StyledSearchWrapper>
+      <StyledSearchButtonMobile
+        disabled={searchValue.length === 0 || isWeatherLoading ? true : false}
+        onClick={handleSearchButton}
+      >
+        Найти
+      </StyledSearchButtonMobile>
       <StyledLocationButton
         onClick={handleLocationButton}
         disabled={isUserLocationLoading || isWeatherLoading}

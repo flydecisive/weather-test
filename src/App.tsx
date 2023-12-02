@@ -7,7 +7,7 @@ import DailyWeather from "./components/daily-weather/daily-weather";
 function App() {
   return (
     <StyledApp>
-      <Header></Header>
+      <Header />
       <StyledWrapper>
         <Location />
         <CurrentWeather />
