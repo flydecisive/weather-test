@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, useRef } from "react";
@@ -15,6 +16,7 @@ import getUserGeo from "../../geo-api";
 import { getCurrentWeather, getDailyWeather } from "../../weather-api";
 import { useCurrentWeatherContext } from "../../contexts/current-weather";
 import { useDailyWeatherContext } from "../../contexts/daily-weather";
+import Autocomplete from "../autocomplete/autocomplete";
 
 interface HeaderProps {
   setIsLoaded: (params: boolean) => void;
@@ -43,11 +45,22 @@ function Header({
   const [isWeatherLoading, setIsWeatherLoading] = useState<boolean>(false);
   const { setCurrentWeather } = useCurrentWeatherContext();
   const { setDailyWeather } = useDailyWeatherContext();
+  const [showAutocomplete, setShowAutocomplete] = useState<boolean>(false);
+  const [selectItem, setSelectItem] = useState<boolean>(false);
   const ref = useRef(null);
 
+  useEffect(() => {
+    if (searchValue.length > 0) {
+      setShowAutocomplete(true);
+    } else {
+      setShowAutocomplete(false);
+    }
+  }, [searchValue]);
+
   const handleInput = (e: any) => {
-    e.target.value = e.target.value.replace(/[^a-z,A-Z,а-я,А-Я]/, "");
+    e.target.value = e.target.value.replace(/[^a-z,A-Z,а-я,А-Я,-]/, "");
     setSearchValue(e.target.value);
+    setShowAutocomplete(true);
   };
 
   useEffect(() => {
@@ -66,6 +79,8 @@ function Header({
   const handleSearchButton = () => {
     setIsLoading(true);
     setIsWeatherLoading(true);
+    setShowAutocomplete(false);
+    setSelectItem(false);
     sessionStorage.setItem("city", searchValue);
     getCurrentWeather(searchValue)
       .then((responseData) => {
@@ -133,12 +148,26 @@ function Header({
   return (
     <StyledWrapper>
       <StyledSearchWrapper>
+        {showAutocomplete && !selectItem ? (
+          <Autocomplete
+            value={searchValue}
+            setSearchValue={setSearchValue}
+            showAutocomplete={showAutocomplete}
+            setShowAutocomplete={setShowAutocomplete}
+            setSelectItem={setSelectItem}
+          />
+        ) : (
+          ""
+        )}
         <SearchIcon />
         <StyledInput
           type="text"
           value={searchValue}
           placeholder="Введите ваш город"
           ref={ref}
+          onClick={() => {
+            setSelectItem(false);
+          }}
           onChange={handleInput}
           onKeyDown={(e: any) => {
             if (e.key === "Enter") {

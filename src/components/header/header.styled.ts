@@ -28,6 +28,7 @@ export const StyledSearchWrapper = styled.div`
   padding-left: 30px;
   padding-right: 30px;
   align-items: center;
+  position: relative;
 
   @media (max-width: 376px) {
     height: 52px;
@@ -37,7 +38,7 @@ export const StyledSearchWrapper = styled.div`
 export const StyledInput = styled.input`
   width: 100%;
   border: none;
-  height: 80%;
+  height: 60%;
   font-size: 18px;
   font-family: "Roboto";
   font-style: normal;
@@ -48,6 +49,7 @@ export const StyledInput = styled.input`
   &:focus {
     outline: none;
     border: none;
+    border-bottom: 1px solid rgba(70, 97, 115, 1);
   }
 `;
 
