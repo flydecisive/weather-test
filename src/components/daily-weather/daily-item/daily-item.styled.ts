@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledItem = styled.div`
+export const StyledItem = styled.div<{ id: number }>`
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
@@ -15,6 +15,10 @@ export const StyledItem = styled.div`
     rgba(205, 202, 219, 1) 100%
   );
   filter: drop-shadow(10px 10px 4px rgba(205, 202, 219, 0.8));
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @media (max-width: 1441px) {
     padding: 10px 10px;

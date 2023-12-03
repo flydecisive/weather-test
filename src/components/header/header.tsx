@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   StyledWrapper,
   StyledSearchWrapper,
@@ -19,9 +20,21 @@ interface HeaderProps {
   setIsLoaded: (params: boolean) => void;
   setInfo: (params: string) => void;
   setIsLoading: (params: boolean) => void;
+  setIsAcceptModalOpen: (params: boolean) => void;
+  setCity: (params: string) => void;
+  acceptModalButtonId: string;
+  setAcceptModalButtonId: (params: string) => void;
 }
 
-function Header({ setIsLoaded, setInfo, setIsLoading }: HeaderProps) {
+function Header({
+  setIsLoaded,
+  setInfo,
+  setIsLoading,
+  setIsAcceptModalOpen,
+  setCity,
+  acceptModalButtonId,
+  setAcceptModalButtonId,
+}: HeaderProps) {
   const [isUserLocationLoading, setIsUserLocationLoading] =
     useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>(
@@ -30,11 +43,25 @@ function Header({ setIsLoaded, setInfo, setIsLoading }: HeaderProps) {
   const [isWeatherLoading, setIsWeatherLoading] = useState<boolean>(false);
   const { setCurrentWeather } = useCurrentWeatherContext();
   const { setDailyWeather } = useDailyWeatherContext();
+  const ref = useRef(null);
 
   const handleInput = (e: any) => {
     e.target.value = e.target.value.replace(/[^a-z,A-Z,а-я,А-Я]/, "");
     setSearchValue(e.target.value);
   };
+
+  useEffect(() => {
+    if (acceptModalButtonId === "0") {
+      setIsAcceptModalOpen(false);
+      handleSearchButton();
+      setAcceptModalButtonId("");
+    } else {
+      setIsAcceptModalOpen(false);
+      // @ts-ignore
+      ref.current.focus();
+      setAcceptModalButtonId("");
+    }
+  }, [acceptModalButtonId]);
 
   const handleSearchButton = () => {
     setIsLoading(true);
@@ -79,7 +106,9 @@ function Header({ setIsLoaded, setInfo, setIsLoading }: HeaderProps) {
     setIsUserLocationLoading(true);
     getUserGeo(position?.coords.latitude, position?.coords.longitude)
       .then((responseData: any) => {
+        setIsAcceptModalOpen(true);
         setSearchValue(responseData?.results[0].components.city);
+        setCity(responseData?.results[0].components.city);
       })
       .finally(() => {
         setIsUserLocationLoading(false);
@@ -109,6 +138,7 @@ function Header({ setIsLoaded, setInfo, setIsLoading }: HeaderProps) {
           type="text"
           value={searchValue}
           placeholder="Введите ваш город"
+          ref={ref}
           onChange={handleInput}
           onKeyDown={(e: any) => {
             if (e.key === "Enter") {

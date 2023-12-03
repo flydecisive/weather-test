@@ -15,7 +15,14 @@ function DailyWeather() {
       <StyledHeading>Прогноз на 5 дней</StyledHeading>
       <StyledItemsWrapper>
         {dailyWeather?.map((el: any, index: number) => (
-          <DailyItem key={index} data={el} />
+          <DailyItem
+            onClick={(e: any) => {
+              console.log(e.currentTarget.id);
+            }}
+            key={index}
+            data={el}
+            id={index}
+          />
         ))}
       </StyledItemsWrapper>
     </StyledWrapper>

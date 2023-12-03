@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-export const StyledApp = styled.div`
+export const StyledApp = styled.div<{ $blur: boolean }>`
   width: 100%;
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   gap: 30px;
+  position: relative;
+  z-index: 1;
+
+  filter: ${(props) => (props.$blur ? "blur(5px)" : "")};
 `;
 
 export const StyledWrapper = styled.div`

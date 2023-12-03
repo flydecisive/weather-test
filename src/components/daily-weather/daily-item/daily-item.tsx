@@ -17,11 +17,13 @@ import { iconsData } from "../../../icons-data";
 
 interface DailyItemProps {
   data: any;
+  id: number;
+  onClick: (params: any) => void;
 }
 
-function DailyItem({ data }: DailyItemProps) {
+function DailyItem({ data, id, onClick }: DailyItemProps) {
   return (
-    <StyledItem>
+    <StyledItem id={id} onClick={onClick}>
       <StyledItemDate>
         {format(new Date(data?.time), "dd.MM.yyyy")}
       </StyledItemDate>

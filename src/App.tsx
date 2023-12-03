@@ -8,6 +8,7 @@ import DailyWeather from "./components/daily-weather/daily-weather";
 import { CurrentWeatherContext } from "./contexts/current-weather";
 import { DailyWeatherContext } from "./contexts/daily-weather";
 import Loader from "./components/loader";
+import AcceptModal from "./components/modals/location-modal/accept-modal";
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState<any>();
@@ -16,6 +17,9 @@ function App() {
   const [info, setInfo] = useState<string>("");
   const [content, setContent] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isAcceptModalOpen, setIsAcceptModalOpen] = useState<boolean>(false);
+  const [acceptModalButtonId, setAcceptModalButtonId] = useState<any>("");
+  const [city, setCity] = useState<string>("");
 
   useEffect(() => {
     if (currentWeather) {
@@ -42,11 +46,24 @@ function App() {
       value={{ currentWeather, setCurrentWeather }}
     >
       <DailyWeatherContext.Provider value={{ dailyWeather, setDailyWeather }}>
-        <StyledApp>
+        {isAcceptModalOpen ? (
+          <AcceptModal
+            city={city}
+            setIsAcceptModalOpen={setIsAcceptModalOpen}
+            setAcceptModalButtonId={setAcceptModalButtonId}
+          />
+        ) : (
+          ""
+        )}
+        <StyledApp $blur={isAcceptModalOpen}>
           <Header
             setIsLoaded={setIsLoaded}
             setInfo={setInfo}
             setIsLoading={setIsLoading}
+            setIsAcceptModalOpen={setIsAcceptModalOpen}
+            setCity={setCity}
+            acceptModalButtonId={acceptModalButtonId}
+            setAcceptModalButtonId={setAcceptModalButtonId}
           />
           {isLoading ? <Loader /> : content}
         </StyledApp>
