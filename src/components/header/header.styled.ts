@@ -105,7 +105,7 @@ export const StyledSearchButtonMobile = styled.button`
 
   &:hover {
     cursor: pointer;
-    background: #53e110;
+    opacity: 0.8;
   }
 
   &:disabled {

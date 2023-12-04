@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div`
   width: 100%;
   height: 100%;
   filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
-  border-radius: 30px;
+  border-radius: 8px;
   background: #eff5ff;
   padding-top: 50px;
   padding-bottom: 50px;

@@ -5,10 +5,10 @@ export const StyledWrapper = styled.div`
   width: 400px;
   max-height: 250px;
   overflow-y: scroll;
-  top: 67px;
+  top: 57px;
   left: 0;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid #0085c6;
   box-sizing: border-box;
   padding: 10px;
@@ -17,6 +17,10 @@ export const StyledWrapper = styled.div`
   &::-webkit-scrollbar {
     width: 0;
     height: 0;
+  }
+
+  @media (max-width: 376px) {
+    width: 100%;
   }
 `;
 
@@ -35,6 +39,6 @@ export const StyledItem = styled.li`
 
   &:hover {
     cursor: pointer;
-    background: rgba(0, 133, 198, 0.2);
+    background: rgba(0, 133, 198, 0.1);
   }
 `;

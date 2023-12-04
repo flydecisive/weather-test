@@ -8,7 +8,7 @@ export const StyledItem = styled.div<{ id: number }>`
   padding: 20px 20px;
   box-sizing: border-box;
   justify-content: space-between;
-  border-radius: 20px;
+  border-radius: 8px;
   background: linear-gradient(to right, #e0eafc, #cfdef3);
   filter: drop-shadow(10px 10px 4px rgba(205, 202, 219, 0.8));
 

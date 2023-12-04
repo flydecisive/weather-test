@@ -9,6 +9,11 @@ export const StyledWrapper = styled.div`
   justify-content: center;
   box-sizing: border-box;
   position: relative;
+
+  @media (max-width: 376px) {
+    flex-flow: column nowrap;
+    gap: 15px;
+  }
 `;
 
 export const StyledStatusWrapper = styled.div`
@@ -22,6 +27,11 @@ export const StyledStatusWrapper = styled.div`
 export const StyledStatusIcon = styled.img`
   width: 220px;
   height: 220px;
+
+  @media (max-width: 376px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
 
 export const StyledStatusText = styled.p`
@@ -30,6 +40,10 @@ export const StyledStatusText = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+
+  @media (max-width: 376px) {
+    font-weight: 500;
+  }
 `;
 
 export const StyledInfo = styled.div`
@@ -37,7 +51,16 @@ export const StyledInfo = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  column-gap: 20px;
+  column-gap: 10px;
+
+  @media (max-width: 376px) {
+    box-sizing: border-box;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    row-gap: 8px;
+    column-gap: 5px;
+  }
 `;
 
 export const StyledInfoItem = styled.div`
@@ -54,11 +77,21 @@ export const StyledInfoItemWrapper = styled.div`
 export const StyledInfoIcon = styled.div`
   width: 45px;
   height: 45px;
+
+  @media (max-width: 376px) {
+    width: 25px;
+    height: 25px;
+  }
 `;
 
 export const StyledTimeIcon = styled.div`
   width: 60px;
   height: 60px;
+
+  @media (max-width: 376px) {
+    width: 25px;
+    height: 25px;
+  }
 `;
 
 export const StyledInfoHeading = styled.div`
@@ -67,6 +100,10 @@ export const StyledInfoHeading = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+
+  @media (max-width: 376px) {
+    font-size: 16px;
+  }
 `;
 
 export const StyledInfoText = styled.p`
@@ -76,4 +113,8 @@ export const StyledInfoText = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+
+  @media (max-width: 376px) {
+    font-size: 14px;
+  }
 `;

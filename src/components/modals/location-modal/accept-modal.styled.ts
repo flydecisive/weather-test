@@ -17,6 +17,10 @@ export const StyledWrapper = styled.div`
   left: 0;
   right: 0;
   z-index: 2;
+
+  @media (max-width: 376px) {
+    padding: 15px 25px;
+  }
 `;
 
 export const StyledIcon = styled.div`
@@ -36,6 +40,10 @@ export const StyledText = styled.p`
   font-family: "Roboto";
   line-height: normal;
   font-weight: 500;
+
+  @media (max-width: 376px) {
+    font-size: 24px;
+  }
 `;
 
 export const StyledButtonsWrapper = styled.div`
@@ -44,6 +52,10 @@ export const StyledButtonsWrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: 30px;
+
+  @media (max-width: 376px) {
+    justify-content: space-between;
+  }
 `;
 
 export const StyledButton = styled.button<{ $accept: boolean; id: number }>`
@@ -63,5 +75,11 @@ export const StyledButton = styled.button<{ $accept: boolean; id: number }>`
   &:hover {
     cursor: pointer;
     background: ${(props) => (props.$accept ? "#ADDFAD" : "#B17267")};
+  }
+
+  @media (max-width: 376px) {
+    padding: 8px 14px;
+    font-size: 16px;
+    font-weight: 500;
   }
 `;

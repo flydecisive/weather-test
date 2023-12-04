@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div`
   width: 100%;
   height: 100%;
   filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
-  border-radius: 30px;
+  border-radius: 8px;
   background: #eff5ff;
   padding: 30px;
   box-sizing: border-box;
@@ -36,7 +36,7 @@ export const StyledCurrentTemp = styled.p<{ $primary: boolean }>`
   background: ${(props) =>
     props.$primary
       ? "linear-gradient(to right, #f2994a, #f2c94c)"
-      : "linear-gradient(to right, #2980b9, #6dd5fa, #ffffff)"};
+      : "linear-gradient(to right, #000046, #1cb5e0)"};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
