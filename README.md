@@ -17,6 +17,7 @@ weather-test - это платформа для поиска погоды по �
 ## Ссылка на готовый проект
 
 [https://funny-druid-f6a54a.netlify.app](https://friendly-gaufre-f8e28d.netlify.app/)
+<img src="./assets/img/preview.png" alt="preview">
 
 ## Используемые технологии
 
