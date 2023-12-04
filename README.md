@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Поиск погоды
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+weather-test - это платформа для поиска погоды по названию города. Проект разработан с использованием современных инструментов и технологий, таких как React, Styled Components, TypeScript, Vite. <br />
+Функции:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<ul>
+  <li>Определение геолокации пользователя</li>
+  <li>Поиск погоды по названию города</li>
+  <li>Подсказка при вводе городов РФ</li>
+  <li>Показ текущей погоды</li>
+  <li>Показ погоды на ближайшие 5 дней</li>
+  <li>Детализация погоды по выбранному дню</li>
+</ul>
 
-## Expanding the ESLint configuration
+## Ссылка на готовый проект
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+[https://funny-druid-f6a54a.netlify.app](https://friendly-gaufre-f8e28d.netlify.app/)
 
-- Configure the top-level `parserOptions` property like this:
+## Используемые технологии
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+<img src='https://img.shields.io/badge/React-%3Cgreen%3E' />&nbsp;
+<img src='https://img.shields.io/badge/TypeScript-%3Cgreen%3E' />&nbsp;
+<img src='https://img.shields.io/badge/StyledComponents-%3Cgreen%3E' />&nbsp;
+<img src='https://img.shields.io/badge/Vite-%3Cgreen%3E' />&nbsp;
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Техническое описание
+
+Установка зависимостей `npm install` <br />
+Запуск проекта `npm run dev` <br />
+Сборка проекта `npm run build` <br />
+Запуск тестов `npm run test` <br /><br />
+
+`src/` — директория, содержащая исходный код проекта.
