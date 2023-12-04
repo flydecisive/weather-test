@@ -27,7 +27,7 @@ import WindIcon from "../../assets/img/wind.svg?react";
 import PressureIcon from "../../assets/img/pressure.svg?react";
 import UvIcon from "../../assets/img/uv-index.svg?react";
 import { useCurrentWeatherContext } from "../../contexts/current-weather";
-import { iconsData } from "../../icons-data";
+import { iconsData } from "../../data/icons-data";
 
 function CurrentWeather() {
   const { currentWeather } = useCurrentWeatherContext();

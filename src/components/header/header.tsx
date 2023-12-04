@@ -12,8 +12,8 @@ import {
 } from "./header.styled";
 import SearchIcon from "../../assets/img/search.svg?react";
 import CurrentLocationIcon from "../../assets/img/current_location.svg?react";
-import getUserGeo from "../../geo-api";
-import { getCurrentWeather, getDailyWeather } from "../../weather-api";
+import getUserGeo from "../../api/geo-api";
+import { getCurrentWeather, getDailyWeather } from "../../api/weather-api";
 import { useCurrentWeatherContext } from "../../contexts/current-weather";
 import { useDailyWeatherContext } from "../../contexts/daily-weather";
 import Autocomplete from "../autocomplete/autocomplete";

@@ -127,7 +127,7 @@ export const StyledCenterContainer = styled.div`
 
 export const StyledWeather = styled.p`
   font-family: "Roboto";
-  font-size: 32px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;

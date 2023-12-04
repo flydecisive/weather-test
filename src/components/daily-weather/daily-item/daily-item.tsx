@@ -13,7 +13,7 @@ import WindIcon from "../../../assets/img/wind.svg?react";
 import HumidityIcon from "../../../assets/img/humidity.svg?react";
 import PressureIcon from "../../../assets/img/pressure.svg?react";
 import format from "date-fns/format";
-import { iconsData } from "../../../icons-data";
+import { iconsData } from "../../../data/icons-data";
 
 interface DailyItemProps {
   data: any;
@@ -37,7 +37,7 @@ function DailyItem({ data, id, onClick }: DailyItemProps) {
           </StyledElemIcon>
 
           <StyledItemText>
-            {Math.floor(data?.values?.temperatureAvg)}&deg;C
+            {Math.round(data?.values?.temperatureAvg)}&deg;C
           </StyledItemText>
         </StyledItemElem>
         <StyledItemElem>

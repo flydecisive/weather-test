@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { StyledWrapper, StyledItem, StyledList } from "./autocomplete.styled";
-import { citiesData } from "../../cities-data";
+import { citiesData } from "../../data/cities-data";
 
 interface AutocompleteProps {
   value: string;

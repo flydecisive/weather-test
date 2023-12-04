@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
-export const StyledWrapper = styled.div`
+export const StyledWrapper = styled.div<{ $selected: boolean }>`
   grid-column: 1 / span 8;
   grid-row: 2 / 3;
   width: 100%;
   height: 100%;
   filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
   border-radius: 30px;
-  background: #d9d9d9;
+  background: ${(props) =>
+    props.$selected
+      ? `linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(205, 202, 219, 1) 100%
+  )`
+      : "#d9d9d9"};
   box-sizing: border-box;
   padding: 20px 40px;
   display: flex;
@@ -17,6 +24,18 @@ export const StyledWrapper = styled.div`
 
   @media (max-width: 376px) {
     padding: 20px 20px;
+  }
+`;
+
+export const StyledBackIcon = styled.div`
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
