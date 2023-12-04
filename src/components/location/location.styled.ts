@@ -8,8 +8,7 @@ export const StyledWrapper = styled.div`
   filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
   border-radius: 8px;
   background: #eff5ff;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 50px 20px;
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
@@ -17,8 +16,7 @@ export const StyledWrapper = styled.div`
   justify-content: space-between;
 
   @media (max-width: 376px) {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 10px;
   }
 `;
 
@@ -32,6 +30,7 @@ export const StyledCity = styled.p`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  text-align: center;
 
   @media (max-width: 376px) {
     font-size: 28px;
