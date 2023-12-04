@@ -17,6 +17,7 @@ import { getCurrentWeather, getDailyWeather } from "../../api/weather-api";
 import { useCurrentWeatherContext } from "../../contexts/current-weather";
 import { useDailyWeatherContext } from "../../contexts/daily-weather";
 import Autocomplete from "../autocomplete/autocomplete";
+import Logo from "../logo/logo";
 
 interface HeaderProps {
   setIsLoaded: (params: boolean) => void;
@@ -147,6 +148,7 @@ function Header({
 
   return (
     <StyledWrapper>
+      <Logo />
       <StyledSearchWrapper>
         {showAutocomplete && !selectItem ? (
           <Autocomplete

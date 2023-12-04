@@ -7,7 +7,7 @@ export const StyledWrapper = styled.div`
   height: 100%;
   filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
   border-radius: 30px;
-  background: #d9d9d9;
+  background: #eff5ff;
   padding-top: 50px;
   padding-bottom: 50px;
   box-sizing: border-box;

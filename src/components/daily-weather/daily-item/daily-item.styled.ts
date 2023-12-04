@@ -9,11 +9,7 @@ export const StyledItem = styled.div<{ id: number }>`
   box-sizing: border-box;
   justify-content: space-between;
   border-radius: 20px;
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(205, 202, 219, 1) 100%
-  );
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
   filter: drop-shadow(10px 10px 4px rgba(205, 202, 219, 0.8));
 
   &:hover {

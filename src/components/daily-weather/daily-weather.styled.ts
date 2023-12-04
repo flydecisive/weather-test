@@ -9,12 +9,8 @@ export const StyledWrapper = styled.div<{ $selected: boolean }>`
   border-radius: 30px;
   background: ${(props) =>
     props.$selected
-      ? `linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(205, 202, 219, 1) 100%
-  )`
-      : "#d9d9d9"};
+      ? `linear-gradient(to right, #e0eafc, #cfdef3)`
+      : "#eff5ff"};
   box-sizing: border-box;
   padding: 20px 40px;
   display: flex;

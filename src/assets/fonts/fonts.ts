@@ -3,8 +3,18 @@ import RobotoRegular from "./Roboto-Regular.ttf";
 import RobotoMedium from "./Roboto-Medium.ttf";
 import RobotoBold from "./Roboto-Bold.ttf";
 import RobotoBlack from "./Roboto-Black.ttf";
+import Pacifico from "./Pacifico-Regular.ttf";
 
 const GlobalFonts = createGlobalStyle`
+    @font-face {
+        font-family: 'Pacifico';
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+        src: url(${Pacifico});
+        src: url(${Pacifico}) format('truetype');
+    }
+
     @font-face {
         font-family: 'Roboto';
         font-weight: 400;

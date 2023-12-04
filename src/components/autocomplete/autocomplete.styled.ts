@@ -9,7 +9,7 @@ export const StyledWrapper = styled.div`
   left: 0;
   background: #fff;
   border-radius: 10px;
-  border: 1px solid rgba(70, 97, 115, 1);
+  border: 1px solid #0085c6;
   box-sizing: border-box;
   padding: 10px;
   z-index: 3;
@@ -31,9 +31,10 @@ export const StyledItem = styled.li`
   font-family: "Roboto";
   font-weight: 700;
   width: 100%;
+  border-radius: 5px;
 
   &:hover {
     cursor: pointer;
-    background: #dddddd;
+    background: rgba(0, 133, 198, 0.2);
   }
 `;

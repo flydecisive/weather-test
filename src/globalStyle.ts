@@ -7,12 +7,12 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     #root {
-        color: #292929; 
+        color: #32383F; 
         width: 100vw;
         min-height: 100vh;
         
         box-sizing: border-box;
-        background: linear-gradient(113deg, rgba(255,255,255,1) 0%, rgba(240,242,238,1) 28%, rgba(70,97,115,1) 100%);
+        background: linear-gradient(135deg,rgba(162,224,249,.8) 5%,rgba(206,245,252,.3) 39%,rgba(234,250,235,.8) 70%,rgba(254,252,211,.7) 88%,rgba(253,244,186,.8) 100%);;
 
         @media (min-width: 1024px) {
             padding: 40px 6vw;

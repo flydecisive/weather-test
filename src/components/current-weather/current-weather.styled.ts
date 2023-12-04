@@ -7,7 +7,7 @@ export const StyledWrapper = styled.div`
   height: 100%;
   filter: drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.5));
   border-radius: 30px;
-  background: #d9d9d9;
+  background: #eff5ff;
   padding: 30px;
   box-sizing: border-box;
   display: flex;
@@ -27,17 +27,16 @@ export const StyledTemperature = styled.div`
   width: fit-content;
 `;
 
-export const StyledCurrentTemp = styled.p`
+export const StyledCurrentTemp = styled.p<{ $primary: boolean }>`
   font-family: "Roboto";
   font-size: 80px;
   font-style: normal;
   font-weight: 800;
   line-height: 100%;
-  background: -webkit-linear-gradient(
-    0deg,
-    rgba(31, 30, 30, 1) 0%,
-    rgba(194, 194, 195, 1) 100%
-  );
+  background: ${(props) =>
+    props.$primary
+      ? "linear-gradient(to right, #f2994a, #f2c94c)"
+      : "linear-gradient(to right, #2980b9, #6dd5fa, #ffffff)"};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;

@@ -5,8 +5,8 @@ export const StyledWrapper = styled.div`
   padding: 30px 50px;
   position: relative;
   box-sizing: border-box;
-  background: #d9d9d9;
-  border: 2px solid rgba(70, 97, 115, 1);
+  background: #eff5ff;
+  border: 1px solid #0085c6;
   border-radius: 20px;
   display: flex;
   flex-flow: column nowrap;
@@ -35,7 +35,7 @@ export const StyledText = styled.p`
   font-size: 32px;
   font-family: "Roboto";
   line-height: normal;
-  font-weight: 800;
+  font-weight: 500;
 `;
 
 export const StyledButtonsWrapper = styled.div`
@@ -48,7 +48,7 @@ export const StyledButtonsWrapper = styled.div`
 
 export const StyledButton = styled.button<{ $accept: boolean; id: number }>`
   width: 100px;
-  background: ${(props) => (props.$accept ? "#2c9121" : "#c40b11")};
+  background: ${(props) => (props.$accept ? "#009A63" : "#92000A")};
   color: #fff;
   padding: 10px 20px;
   box-sizing: border-box;
@@ -62,6 +62,6 @@ export const StyledButton = styled.button<{ $accept: boolean; id: number }>`
 
   &:hover {
     cursor: pointer;
-    opacity: 0.6;
+    background: ${(props) => (props.$accept ? "#ADDFAD" : "#B17267")};
   }
 `;

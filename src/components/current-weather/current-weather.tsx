@@ -35,13 +35,15 @@ function CurrentWeather() {
     <StyledWrapper>
       <StyledLeftContainer>
         <StyledTemperature>
-          <StyledCurrentTemp>
-            {Math.floor(currentWeather?.data?.values.temperature)}&deg;C
+          <StyledCurrentTemp
+            $primary={currentWeather?.data?.values.temperature >= 0}
+          >
+            {Math.round(currentWeather?.data?.values.temperature)}&deg;C
           </StyledCurrentTemp>
           <StyledFeel>
             Ощущается как:{" "}
             <StyledFeelTemp>
-              {Math.floor(currentWeather?.data?.values.temperatureApparent)}
+              {Math.round(currentWeather?.data?.values.temperatureApparent)}
               &deg;C
             </StyledFeelTemp>
           </StyledFeel>

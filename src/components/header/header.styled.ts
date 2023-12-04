@@ -17,9 +17,9 @@ export const StyledWrapper = styled.div`
 export const StyledSearchWrapper = styled.div`
   width: 100%;
   height: 62px;
-  border-radius: 40px;
-  border: 1px solid #000;
-  backgound: #d9d9d9;
+  border-radius: 8px;
+  border: 1px solid #0085c6;
+  background: #fff;
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: flex-start;
@@ -54,8 +54,8 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledSearchButton = styled.button`
-  border-radius: 40px;
-  background: #4cbb17;
+  border-radius: 8px;
+  background: #0085c6;
   height: 80%;
   border: none;
   margin-left: auto;
@@ -63,16 +63,16 @@ export const StyledSearchButton = styled.button`
   padding-right: 20px;
   box-sizing: border-box;
 
-  color: rgba(255, 255, 255, 0.8);
+  color: #fff;
   font-family: "Roboto";
-  font-weight: 800;
+  font-weight: 500;
   font-size: 22px;
   line-height: normal;
   transition: 0.3s all;
 
   &:hover {
     cursor: pointer;
-    background: #53e110;
+    opacity: 0.8;
   }
 
   &:disabled {
@@ -86,8 +86,8 @@ export const StyledSearchButton = styled.button`
 `;
 
 export const StyledSearchButtonMobile = styled.button`
-  border-radius: 40px;
-  background: #4cbb17;
+  border-radius: 8px;
+  background: #0085c6;
   height: 52px;
   width: 100%;
   border: none;
@@ -96,9 +96,9 @@ export const StyledSearchButtonMobile = styled.button`
   padding-right: 20px;
   box-sizing: border-box;
 
-  color: rgba(255, 255, 255, 0.8);
+  color: #fff;
   font-family: "Roboto";
-  font-weight: 800;
+  font-weight: 500;
   font-size: 22px;
   line-height: normal;
   transition: 0.3s all;
@@ -119,8 +119,8 @@ export const StyledSearchButtonMobile = styled.button`
 `;
 
 export const StyledLocationButton = styled.button`
-  border-radius: 40px;
-  background: #4cbb17;
+  border-radius: 8px;
+  background: #0085c6;
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25);
   height: 62px;
   width: 302px;
@@ -134,17 +134,17 @@ export const StyledLocationButton = styled.button`
   align-items: center;
   gap: 10px;
 
-  color: rgba(255, 255, 255, 0.8);
+  color: #fff;
   font-size: 22px;
   font-style: normal;
   font-family: "Roboto";
-  font-weight: 800;
+  font-weight: 500;
   line-height: normal;
   transition: 0.3s background;
 
   &:hover {
     cursor: pointer;
-    background: #53e110;
+    opacity: 0.8;
   }
 
   &:disabled {

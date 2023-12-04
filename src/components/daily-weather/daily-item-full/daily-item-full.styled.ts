@@ -16,6 +16,7 @@ export const StyledStatusWrapper = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  gap: 5px;
 `;
 
 export const StyledStatusIcon = styled.img`
